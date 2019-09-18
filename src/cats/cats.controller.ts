@@ -1,11 +1,16 @@
-import { Controller, Get, Req } from '@nestjs/common';
+import { Controller, Get, Req, Post, HttpCode } from '@nestjs/common';
 import { Request } from 'express';
 
 @Controller('cats')
 export class CatsController {
   @Get()
+  @HttpCode(418)
   foo(@Req() request: Request): string {
-    console.log(request);
-    return 'asdfasdfa';
+    return 'all the cats!';
+  }
+
+  @Post()
+  create(): string {
+    return 'would make a cat';
   }
 }
