@@ -20,8 +20,8 @@ export class CatsController {
   }
 
   @Post()
-  create(@Body() createCatDto: CreateCatDto) {
-    return 'would make a cat';
+  async create(@Body() createCatDto: CreateCatDto) {
+    return createCatDto;
   }
 
   @Get('redirectme')
