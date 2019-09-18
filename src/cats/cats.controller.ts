@@ -6,8 +6,10 @@ import {
   HttpCode,
   Redirect,
   Param,
+  Body,
 } from '@nestjs/common';
 import { Request } from 'express';
+import { CreateCatDto } from './cats.dto';
 
 @Controller('cats')
 export class CatsController {
@@ -18,7 +20,7 @@ export class CatsController {
   }
 
   @Post()
-  create(): string {
+  create(@Body() createCatDto: CreateCatDto) {
     return 'would make a cat';
   }
 
