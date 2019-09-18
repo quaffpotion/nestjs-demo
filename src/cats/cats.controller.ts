@@ -1,4 +1,4 @@
-import { Controller, Get, Req, Post, HttpCode } from '@nestjs/common';
+import { Controller, Get, Req, Post, HttpCode, Redirect } from '@nestjs/common';
 import { Request } from 'express';
 
 @Controller('cats')
@@ -13,4 +13,8 @@ export class CatsController {
   create(): string {
     return 'would make a cat';
   }
+
+  @Get('redirectme')
+  @Redirect('http://chirgwin.net', 301)
+  neverun() {}
 }
