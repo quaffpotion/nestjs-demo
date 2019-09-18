@@ -1,0 +1,6 @@
+- [ ] create
+- [ ] retrieve
+  - [ ] get list
+  - [ ] get by id
+- [ ] update by id
+- [ ] delete by id
