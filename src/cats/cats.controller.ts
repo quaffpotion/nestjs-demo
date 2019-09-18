@@ -1,4 +1,12 @@
-import { Controller, Get, Req, Post, HttpCode, Redirect } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Req,
+  Post,
+  HttpCode,
+  Redirect,
+  Param,
+} from '@nestjs/common';
 import { Request } from 'express';
 
 @Controller('cats')
@@ -16,5 +24,16 @@ export class CatsController {
 
   @Get('redirectme')
   @Redirect('http://chirgwin.net', 301)
-  neverun() {}
+  neverun() {
+    return 'never foudn';
+  }
+
+  //localhost:3000/cats/thisFRO/1
+  @Get('this:name/:id')
+  findOne(@Param() params): string {
+    console.log(params.id);
+    return `This action returns a cat named ${params.name} with id ${
+      params.id
+    }.`;
+  }
 }
